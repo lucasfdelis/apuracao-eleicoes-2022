@@ -3,11 +3,13 @@ import requests
 import time
 import pandas as pd
 
-response_API = requests.get('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
-resultado = response_API.json()['cand']
-
 while True:
+
+    response_API = requests.get('https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/br/br-c0001-e000544-r.json')
+    resultado = response_API.json()['cand']
+    
     hora_atualizacao = response_API.json()['hg']
+
     candidatos = []
     nvotacoes = []
     pvotacoes = []
